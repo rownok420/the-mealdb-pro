@@ -16,7 +16,7 @@ const searceFood = () => {
 
     const inputText = inputField.value;
     inputField.value = '';
-    if(inputText == ''){
+    if(inputText === '' || inputText === '#'){
         spinner.style.display = 'none'
         errorMessage1.style.display = 'block'
         errorMessage2.style.display = 'none'
