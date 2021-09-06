@@ -57,19 +57,19 @@ const displayFood = (meals) => {
     const showSearce = document.getElementById('searce-food');
     showSearce.innerText = '';
     meals.forEach(meal => {
-        console.log(meal)
+        // console.log(meal)
         const div = document.createElement('div');
         div.classList.add('col')
         div.innerHTML = `
             <div class="card h-100">
                 <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h3 class="card-title fw-bold">${meal.strMeal}</h3>
+                    <h5 class="card-title fw-bold">${meal.strMeal}</h5>
                 </div>
                 <div class="card-footer text-center">
                     <div class="d-flex justify-content-between">
                     <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-secondary">See Details</button>
-                    <button class="btn btn-outline-secondary">Add to Cart</button>
+                    <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-secondary">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -139,12 +139,12 @@ const displayCatagoryDetails = (meals) => {
             <div class="card h-100">
                 <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h3 class="card-title fw-bold">${meal.strMeal}</h3>
+                    <h5 class="card-title fw-bold">${meal.strMeal}</h5>
                 </div>
                 <div class="card-footer text-center">
                     <div class="d-flex justify-content-between">
                     <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-secondary">See Details</button>
-                    <button class="btn btn-outline-secondary">Add to Cart</button>
+                    <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-secondary">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,6 @@ const seeDetails = (mealId) => {
 const seeModals = (meal) => {
     spinner.style.display = 'none'
 
-    console.log(meal)
     const modalTitle = document.getElementById('see-title')
     const modalImage = document.getElementById('modal-img')
     const modalDesciption = document.getElementById('modal-desciption')
@@ -177,4 +176,35 @@ const seeModals = (meal) => {
     modalImage.src = `${meal.strMealThumb}`
     modalDesciption.innerText = `${meal.strInstructions.slice(0,200)}`
     visitNow.href = `${meal.strYoutube}`
+}
+
+// add to cart with modal
+
+const addTocart = (mealId) => {
+    spinner.style.display = 'none'
+
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+        .then(res => res.json())
+        .then(data => cartDetails(data.meals[0]))
+}
+
+const cartDetails = (meal) => {
+    console.log(meal)
+    const cartBody = document.getElementById('cart-body')
+    const div = document.createElement('div')
+    div.classList.add('card','w-100','m-2')
+    div.innerHTML = `
+        <div class="row p-2">
+            <div class="col-md-4">
+                <img src="${meal.strMealThumb}" class="img-fluid rounded-circle" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h4 class="card-title fw-bold">${meal.strMeal}</h4>
+                <h5 class="text-info fw-bold mt-3">Quantity: <span>1</span></h5>
+                </div>
+            </div>
+        </div>
+    `
+    cartBody.appendChild(div)
 }

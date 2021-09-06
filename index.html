@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- favicon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- css stylesheet  -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -33,6 +35,11 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                            <li style="cursor: pointer" class="nav-item" data-bs-toggle="modal" data-bs-target="#cart-items">
+                                <p class="nav-link">
+                                    <i class="block bi bi-cart-plus"></i>
+                                </p>
                             </li>
                             
                         </ul>
@@ -77,21 +84,21 @@
 
         <!-- show searce food  -->
         <section class="container">
-            <div id="searce-food" class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="searce-food" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
                
             </div>
         </section>
 
         <!-- food catagory  -->
         <section class="container">
-            <div id="show-catagory" class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="show-catagory" class="row row-cols-md-2 row-cols-lg-4 g-3">
                
             </div>
         </section>
 
         <!-- see catagories section  -->
         <section class="container mt-4">
-            <div id="catagory-details" class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="catagory-details" class="row row-cols-md-2 row-cols-lg-4 g-3">
                
             </div>
         </section>
@@ -116,12 +123,32 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
-                    <a target="_blank" id="visit-now" type="button" class="btn btn-outline-secondary">Visit now</a>
+                    <a target="_blank" id="visit-now" type="button" class="btn btn-outline-secondary">Learn more</a>
                     </div>
                 </div>
                 </div>
+            </div> 
+        </section>
+
+        <!-- cart modal section  -->
+        <section class="container">                   
+            <div class="modal fade" id="cart-items" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title fw-bold" id="cart-title">Your order</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="cart-body">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Order Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
         </section>
 
 
