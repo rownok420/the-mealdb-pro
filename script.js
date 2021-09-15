@@ -6,11 +6,7 @@ const errorMessage2 = document.getElementById('error2')
 const showCatagory = document.getElementById('show-catagory');
 const errorSpan = document.getElementById('error-span')
 
-
-
-
 // searce food 
-
 const searceFood = () => {
     spinner.style.display = 'block'
 
@@ -43,10 +39,6 @@ const errorMessage = () => {
 }
 
 
-
-
-
-
 const displayFood = (meals) => {
     spinner.style.display = 'none'
     // clear display
@@ -62,14 +54,14 @@ const displayFood = (meals) => {
         div.classList.add('col')
         div.innerHTML = `
             <div class="card h-100">
-                <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+                <img style="height: 250px; object-fit: cover; " src="${meal.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">${meal.strMeal}</h5>
+                    <h5 class="card-title fw-bold text-primary">${meal.strMeal}</h5>
                 </div>
                 <div class="card-footer text-center">
                     <div class="d-flex justify-content-between">
-                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-secondary">See Details</button>
-                    <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-secondary">Add to Cart</button>
+                        <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-primary">See Details</button>
+                        <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-success">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -79,7 +71,6 @@ const displayFood = (meals) => {
 
     })
 }
-
 
 
 // show all food catagory
@@ -101,10 +92,10 @@ const displayCatagoris = (catagories) => {
             <div class="card h-100">
                 <img src="${catagory.strCategoryThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h3 class="card-title fw-bold">${catagory.strCategory}</h3>
+                    <h3 class="card-title fw-bold text-primary">${catagory.strCategory}</h3>
                 </div>
                 <div class="card-footer text-center">
-                    <button onclick="loadCaragoryDetails('${catagory.strCategory}')" class="btn btn-outline-secondary">See Catagories</button>
+                    <button onclick="loadCaragoryDetails('${catagory.strCategory}')" class="btn btn-outline-primary">See Catagories</button>
                 </div>
             </div>
         
@@ -116,7 +107,6 @@ const displayCatagoris = (catagories) => {
 }
 
 // show catagory details 
-
 const loadCaragoryDetails = (names) => {
     spinner.style.display = 'block'
 
@@ -137,14 +127,14 @@ const displayCatagoryDetails = (meals) => {
         div.classList.add('col')
         div.innerHTML = `
             <div class="card h-100">
-                <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+                <img style="height: 250px; object-fit: cover; " src="${meal.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">${meal.strMeal}</h5>
+                    <h5 class="card-title fw-bold text-primary">${meal.strMeal}</h5>
                 </div>
                 <div class="card-footer text-center">
                     <div class="d-flex justify-content-between">
-                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-secondary">See Details</button>
-                    <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-secondary">Add to Cart</button>
+                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-primary">See Details</button>
+                    <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-success">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -156,7 +146,6 @@ const displayCatagoryDetails = (meals) => {
 
 
 // see details with modal 
-
 const seeDetails = (mealId) => {
     spinner.style.display = 'block'
 
@@ -179,7 +168,6 @@ const seeModals = (meal) => {
 }
 
 // add to cart with modal
-
 const addTocart = (mealId) => {
     spinner.style.display = 'none'
 

@@ -17,16 +17,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="bg-light">
         <section class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
-                    <a class="navbar-brand fs-2 fw-bold" href="#">Food zone</a>
+                    <a class="navbar-brand fs-3 fw-bold text-primary" href="#">Food zone</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto fs-5">
+                        <ul class="navbar-nav ms-auto fs-6">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
@@ -51,10 +51,10 @@
 
     <main>
         <!-- searce field  -->
-        <section class="container mt-4 mb-5 w-50">
+        <section class="container mt-4 mb-3" style="width: 65%;">
             <div class="input-group mb-3">
-                <input id="input-field" type="text" class="rounded form-control me-2 p-2" placeholder="Searce food" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button onclick="searceFood()" class="btn btn-outline-secondary px-3 rounded" type="button" id="button-addon2">Searce</button>
+                <input id="input-field" type="text" class="rounded form-control me-2 p-2" placeholder="Search food" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button onclick="searceFood()" class="btn btn-primary px-3 rounded fw-bold" type="button" id="button-addon2">Search</button>
               </div>
         </section>
 
@@ -91,14 +91,14 @@
 
         <!-- food catagory  -->
         <section class="container">
-            <div id="show-catagory" class="row row-cols-md-2 row-cols-lg-4 g-3">
+            <div id="show-catagory" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
                
             </div>
         </section>
 
         <!-- see catagories section  -->
         <section class="container mt-4">
-            <div id="catagory-details" class="row row-cols-md-2 row-cols-lg-4 g-3">
+            <div id="catagory-details" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
                
             </div>
         </section>
@@ -115,7 +115,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="card w-100">
-                            <img id="modal-img" src="" class="card-img-top" alt="...">
+                            <img style="height: 250px; object-fit: cover;" id="modal-img" src="" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p id="modal-desciption" class="card-text"></p>
                             </div>
