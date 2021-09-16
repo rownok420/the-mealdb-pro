@@ -68,7 +68,7 @@ const displayFood = (meals) => {
                     <h5 class="card-title fw-bold text-primary">${meal.strMeal}</h5>
                 </div>
                 <div class="card-footer text-center d-flex flex-column flex-md-row justify-content-between">
-                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-primary">See Details</button>
+                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-primary btn-color">See Details</button>
                     <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-success">Add to Cart</button>
                 </div>
             </div>
@@ -183,24 +183,47 @@ const addTocart = (mealId) => {
 
 const cartDetails = (meal) => {
     document.getElementById("cart-add-info").style.display = "block";
-    console.log(meal)
+    //console.log(meal)
     const cartBody = document.getElementById('cart-body')
-    const div = document.createElement('div')
-    div.classList.add('card','w-100','m-2')
-    div.innerHTML = `
+    let isFound = false;
+
+    const cartContainer = cartBody.querySelectorAll('.modal-body .card')
+    // console.log(cartContainer.length);
+
+
+    for (let item of cartContainer) {
+        const itemId = parseInt(item.querySelector(".food-id").innerText);
+  
+        if (itemId === meal.idMeal) {
+          let quantity = parseInt(item.querySelector(".quantity").innerText);
+          item.querySelector(".quantity").innerText = quantity + 1;
+          isFound = true;
+        }
+      }
+    
+
+    if(!isFound){
+        const div = document.createElement('div')
+        div.classList.add('card','w-100','m-2')
+        div.innerHTML = `
         <div class="row p-2">
             <div class="col-md-4">
                 <img src="${meal.strMealThumb}" class="img-fluid rounded-circle" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                <h4 class="card-title fw-bold">${meal.strMeal}</h4>
-                <h5 class="text-info fw-bold mt-3">Quantity: <span>1</span></h5>
+                    <h4 class="card-title fw-bold">${meal.strMeal}</h4>
+                    <span class="food-id visually-hidden">${meal.idMeal}</span>
+                    <h5 class="text-info fw-bold mt-3">Quantity: <span class="quantity">1</span></h5>
                 </div>
             </div>
         </div>
-    `
-    cartBody.appendChild(div)
+        `
+        cartBody.appendChild(div)
+    }
+    else{
+        console.log('product founded')
+    }
 
     setTimeout(() => {
         document.getElementById("cart-add-info").style.display = "none";
