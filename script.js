@@ -15,8 +15,8 @@ inputField.addEventListener("keypress", function(event) {
 
 
 
-// searce food 
-const searceFood = () => {
+// search food 
+const searchFood = () => {
     spinner.style.display = 'block'
 
     const inputText = inputField.value;
@@ -55,8 +55,8 @@ const displayFood = (meals) => {
     showCatagory.innerText = '';
     const showDetails = document.getElementById('catagory-details');
     showDetails.innerText = '';
-    const showSearce = document.getElementById('searce-food');
-    showSearce.innerText = '';
+    const showsearch = document.getElementById('search-food');
+    showsearch.innerText = '';
     meals.forEach(meal => {
         // console.log(meal)
         const div = document.createElement('div');
@@ -65,16 +65,16 @@ const displayFood = (meals) => {
             <div class="card h-100">
                 <img style="height: 250px; object-fit: cover; " src="${meal.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold text-primary">${meal.strMeal}</h5>
+                    <h5 class="card-title fw-bold text-success">${meal.strMeal}</h5>
                 </div>
                 <div class="card-footer text-center d-flex flex-column flex-md-row justify-content-between">
-                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-primary btn-color">See Details</button>
+                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-success btn-color">See Details</button>
                     <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-success">Add to Cart</button>
                 </div>
             </div>
         
         `
-        showSearce.appendChild(div)
+        showsearch.appendChild(div)
 
     })
 }
@@ -99,10 +99,10 @@ const displayCatagoris = (catagories) => {
             <div class="card h-100">
                 <img src="${catagory.strCategoryThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold text-primary">${catagory.strCategory}</h5>
+                    <h5 class="card-title fw-bold text-success">${catagory.strCategory}</h5>
                 </div>
                 <div class="card-footer text-center">
-                    <button onclick="loadCaragoryDetails('${catagory.strCategory}')" class="btn btn-outline-primary">See Catagories</button>
+                    <button onclick="loadCaragoryDetails('${catagory.strCategory}')" class="btn btn-outline-success">See Catagories</button>
                 </div>
             </div>
         
@@ -136,10 +136,10 @@ const displayCatagoryDetails = (meals) => {
             <div class="card h-100">
                 <img style="height: 250px; object-fit: cover; " src="${meal.strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold text-primary">${meal.strMeal}</h5>
+                    <h5 class="card-title fw-bold text-success">${meal.strMeal}</h5>
                 </div>
                 <div class="card-footer text-center d-flex flex-column flex-md-row justify-content-between">
-                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-primary">See Details</button>
+                    <button onclick="seeDetails(${meal.idMeal})" data-bs-toggle="modal" data-bs-target="#see-details" class="btn btn-outline-success">See Details</button>
                     <button onclick="addTocart(${meal.idMeal})" class="btn btn-outline-success">Add to Cart</button>
                 </div>
             </div>
@@ -183,16 +183,11 @@ const addTocart = (mealId) => {
 
 const cartDetails = (meal) => {
     document.getElementById("cart-add-info").style.display = "block";
-    //console.log(meal)
-    const cartBody = document.getElementById('cart-body')
+    const cartBody = document.getElementById('cart-body');
     let isFound = false;
-
-    const cartContainer = cartBody.querySelectorAll('.modal-body .card')
-    // console.log(cartContainer.length);
-
-
-    for (let item of cartContainer) {
-        const itemId = parseInt(item.querySelector(".food-id").innerText);
+    const itemContainer = cartBody.querySelectorAll('.modal-body .card');
+    for (let item of itemContainer) {
+        const itemId = item.querySelector(".food-id").innerText;
   
         if (itemId === meal.idMeal) {
           let quantity = parseInt(item.querySelector(".quantity").innerText);
@@ -221,10 +216,7 @@ const cartDetails = (meal) => {
         `
         cartBody.appendChild(div)
     }
-    else{
-        console.log('product founded')
-    }
-
+    
     setTimeout(() => {
         document.getElementById("cart-add-info").style.display = "none";
       }, 1000);

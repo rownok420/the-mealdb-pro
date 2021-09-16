@@ -23,23 +23,23 @@
         <section class="container">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
-                    <a class="navbar-brand fs-3 text-primary" href="#"> <i class="bi bi-shop me-2"></i>Food zone</a>
+                    <a class="navbar-brand fs-3 text-success" href="#"> <i class="bi bi-shop me-2"></i>Food zone</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto fs-6">
                             <li class="nav-item">
-                                <a class="nav-link active text-primary" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active text-success" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-primary" href="#">Items</a>
+                                <a class="nav-link text-success" href="#">Items</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-primary" href="#">Pricing</a>
+                                <a class="nav-link text-success" href="#">Pricing</a>
                             </li>
                             <li style="cursor: pointer" class="nav-item" data-bs-toggle="modal" data-bs-target="#cart-items">
-                                <p class="nav-link text-primary">
+                                <p class="nav-link text-success">
                                     <i class="block bi bi-cart-plus"></i>
                                 </p>
                             </li>
@@ -52,22 +52,22 @@
     </header>
 
     <main>
-        <!-- searce field  -->
+        <!-- search field  -->
         <section class="container mt-4 mb-3" style="width: 65%;">
             <div class="input-group mb-3">
                 <input id="input-field" type="text" class="rounded form-control me-2 p-2" placeholder="Search food" aria-label="Recipient's username" aria-describedby="search-button">
-                <button onclick="searceFood()" class="btn btn-primary px-3 rounded fw-bold" type="button" id="search-button">Search</button>
+                <button onclick="searchFood()" class="btn btn-success px-3 rounded fw-bold" type="button" id="search-button">Search</button>
               </div>
         </section>
 
         <!-- welcome message  -->
         <section class="container my-4">
-            <h5 id="welcome" class="text-center fw-bold text-primary">Welcome to our Food Zone! Search by your desire food name.</h5>
+            <h5 id="welcome" class="text-center fw-bold text-success">Welcome to our Food Zone! Search by your desire food name.</h5>
         </section>
 
         <!-- error message 1  -->
         <section id="error1">
-            <h4 class="text-center fw-bold text-info">Opps! Please searce something.</h4>
+            <h4 class="text-center fw-bold text-info">Opps! Please search something.</h4>
         </section>
 
         <!-- error message 2  -->
@@ -78,15 +78,15 @@
         <!-- spinner  -->
         <section>
             <div class="d-flex justify-content-center mb-5">
-                <div id="spinner" class="spinner-border text-primary" role="status">
+                <div id="spinner" class="spinner-border text-success" role="status">
                   <span class="visually-hidden"></span>
                 </div>
               </div>
         </section>
 
-        <!-- show searce food  -->
+        <!-- show search food  -->
         <section class="container">
-            <div id="searce-food" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+            <div id="search-food" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
                
             </div>
         </section>
@@ -112,7 +112,7 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title text-primary" id="see-title"></h5>
+                    <h5 class="modal-title text-success" id="see-title"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -125,7 +125,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
-                    <a target="_blank" id="visit-now" type="button" class="btn btn-outline-primary">Learn more</a>
+                    <a target="_blank" id="visit-now" type="button" class="btn btn-outline-success">Learn more</a>
                     </div>
                 </div>
                 </div>
@@ -146,7 +146,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Order Now</button>
+                            <button type="button" class="btn btn-success">Order Now</button>
                         </div>
                     </div>
                 </div>
